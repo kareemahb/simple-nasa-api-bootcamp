@@ -19,11 +19,21 @@ const explanation = document.querySelector("#explanation");
 // ===============================
 
 // Prevent the user from selecting
-// a date in the future
+// a date in the future.
 
-const today = new Date().toISOString().split("T")[0];
+const now = new Date();
+
+const today = [
+  now.getFullYear(),
+  String(now.getMonth() + 1).padStart(2, "0"),
+  String(now.getDate()).padStart(2, "0"),
+].join("-");
 
 dateInput.max = today;
+
+// The first APOD was published on June 16, 1995
+
+dateInput.min = "1995-06-16";
 
 // ===============================
 // FORM EVENT
@@ -50,28 +60,50 @@ function handleSubmit(event) {
 // NASA API
 // ===============================
 
+// The apod-basic endpoint asks for one day as a path:
+// /apod-basic/YYMMDD (for example 2024-06-01 -> 240601).
+
+function toApodId(date) {
+  const [year, month, day] = date.split("-");
+
+  return `${year.slice(2)}${month}${day}`;
+}
+
 async function getNasaData(date) {
-  const url = `https://science.nasa.gov/wp-json/wp/v2/apod-basic?date=${date}`;
+  const url = `https://science.nasa.gov/wp-json/wp/v2/apod-basic/${toApodId(date)}`;
 
   try {
     const response = await fetch(url);
+
+    // NASA answers 404 when no APOD exists for that date
+
+    if (response.status === 404) {
+      throw new Error(`No APOD was found for ${date}.`);
+    }
 
     if (!response.ok) {
       throw new Error("Could not retrieve NASA data.");
     }
 
-    const data = await response.json();
+    const result = await response.json();
 
-    console.log(data);
+    // A single date returns one object
+
+    const data = Array.isArray(result) ? result[0] : result;
+
+    if (!data || !data.title) {
+      throw new Error(`No APOD was found for ${date}.`);
+    }
 
     displayNasaData(data);
   } catch (error) {
     console.error(error);
 
+    apodDate.textContent = "";
+
     title.textContent = "Something went wrong.";
 
-    explanation.textContent =
-      "NASA's data could not be loaded. Please try another date.";
+    explanation.textContent = `${error.message} Please try another date.`;
 
     media.innerHTML = "";
   }
