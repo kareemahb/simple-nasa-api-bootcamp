@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA Astronomy Picture of the Day</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">NASA</div>
+
+      <nav class="nav-links">
+        <a href="#home"> HOME </a>
+
+        <a href="#explore"> EXPLORE </a>
+
+        <a href="#picture"> APOD </a>
+
+        <a href="https://www.nasa.gov/" target="_blank">
+          Learn More about NASA
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+      <section id="home" class="hero">
+        <p class="sm-title">NASA OPEN API</p>
+
+        <h1>
+          EXPLORE THE
+          <span class="accent"> UNIVERSE. </span>
+        </h1>
+
+        <p class="hero-description">
+          Journey through space and discover NASA's Astronomy Picture of the
+          Day.
+        </p>
+
+        <a href="#explore" class="hero-button"> Start Exploring → </a>
+      </section>
+
+      <!-- =========================
+         DATE SEARCH Section 
+    ========================== -->
+
+      <section id="explore" class="search-section">
+        <div class="section-number">01</div>
+
+        <div class="section-heading">
+          <p class="sm-title">DISCOVER SPACE</p>
+
+          <h2>Choose a Date</h2>
+
+          <p>
+            Select any date to discover NASA's Astronomy Picture of the Day.
+          </p>
+        </div>
+
+        <form id="nasaForm">
+          <div class="date-group">
+            <label for="date"> SELECT DATE </label>
+
+            <input type="date" id="date" required />
+          </div>
+
+          <button type="submit">Explore →</button>
+        </form>
+      </section>
+
+      <!-- =========================
+         NASA  RESULT
+    ========================== -->
+
+      <section id="picture" class="apod-section">
+        <div class="section-number">02</div>
+
+        <div class="section-heading">
+          <p class="sm-title">ASTRONOMY PICTURE OF THE DAY</p>
+
+          <h2>Today's Discovery</h2>
+        </div>
+
+        <article class="nasa-result">
+          <!-- NASA image / video goes here -->
+
+          <div id="media"></div>
+
+          <!-- NASA information -->
+
+          <div class="nasa-info">
+            <p id="apodDate" class="date"></p>
+
+            <h2 id="title">Select a date to begin exploring.</h2>
+
+            <p id="explanation" class="description">
+              NASA's Astronomy Picture of the Day will appear here.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- =========================
+       FOOTER
+  ========================== -->
+
+    <footer>
+      <div class="footer-logo">NASA</div>
+
+      <p>Exploring the universe one image at a time.</p>
+
+      <p class="footer-small">
+        Data provided by NASA's Astronomy Picture of the Day API.
+      </p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,597 @@
+/* =========================
+   NASA COLOR PALETTE
+========================= */
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-gray: #a9adb5;
+  --color-light-gray: #d6d8dc;
+
+  --color-blue: #2f28fb;
+
+  --color-dark: #101010;
+  --color-border: #282828;
+}
+
+/* =========================
+   RESET / GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+main {
+  overflow: hidden;
+}
+
+a {
+  font-family: inherit;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.main-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+
+  padding: 30px 7%;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 800;
+
+  letter-spacing: -0.08em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--color-white);
+
+  text-decoration: none;
+
+  font-size: 0.72rem;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-blue);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+
+  padding: 150px 7% 100px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.78) 35%,
+      rgba(0, 0, 0, 0.4) 65%,
+      rgba(0, 0, 0, 0.12) 100%
+    ),
+    url("earth-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* small section labels */
+
+.sm-title {
+  margin: 0 0 15px;
+
+  color: var(--color-light-gray);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 900px;
+
+  margin: 0 0 30px;
+
+  font-size: clamp(4rem, 9vw, 8.5rem);
+
+  line-height: 0.88;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 700;
+}
+
+.accent {
+  display: block;
+
+  color: var(--color-blue);
+}
+
+.hero-description {
+  max-width: 540px;
+
+  margin: 0 0 30px;
+
+  color: var(--color-light-gray);
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+.hero-button {
+  width: fit-content;
+
+  display: inline-block;
+
+  padding: 14px 26px;
+
+  background-color: var(--color-blue);
+
+  color: var(--color-white);
+
+  border-radius: 40px;
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 30px rgba(47, 40, 251, 0.55);
+}
+
+/* =========================
+   SHARED SECTION STYLES
+========================= */
+
+.search-section,
+.apod-section {
+  width: min(1100px, 86%);
+
+  margin: 0 auto;
+
+  padding: 110px 0;
+}
+
+.section-number {
+  margin-bottom: 15px;
+
+  color: var(--color-white);
+
+  font-size: 0.8rem;
+
+  font-weight: 500;
+}
+
+.section-heading {
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  margin: 0 0 14px;
+
+  font-size: clamp(2rem, 4vw, 3.3rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+}
+
+.section-heading p:not(.sm-title) {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--color-gray);
+
+  line-height: 1.7;
+}
+
+/* =========================
+   SEARCH SECTION
+========================= */
+
+.search-section {
+  border-bottom: 1px solid #171717;
+}
+
+.search-section form {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+label {
+  color: var(--color-light-gray);
+
+  font-size: 0.7rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+input[type="date"] {
+  min-width: 220px;
+
+  padding: 14px 20px;
+
+  background-color: transparent;
+
+  color: var(--color-white);
+
+  border: 1px solid #61646b;
+
+  border-radius: 40px;
+
+  outline: none;
+
+  font-size: 0.9rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="date"]:focus {
+  border-color: var(--color-blue);
+
+  box-shadow: 0 0 0 3px rgba(47, 40, 251, 0.15);
+}
+
+/* Calendar icon visibility */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+
+  cursor: pointer;
+}
+
+button {
+  padding: 15px 28px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background-color: var(--color-blue);
+
+  color: var(--color-white);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 25px rgba(47, 40, 251, 0.55);
+}
+
+/* =========================
+   APOD SECTION
+========================= */
+
+.apod-section {
+  padding-top: 110px;
+  padding-bottom: 130px;
+}
+
+/* =========================
+   NASA RESULT CARD
+========================= */
+
+.nasa-result {
+  width: 100%;
+
+  margin: 50px 0 0;
+
+  background-color: var(--color-dark);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.nasa-info {
+  padding: 45px;
+}
+
+.nasa-info .date {
+  margin: 0 0 12px;
+
+  color: var(--color-blue);
+
+  font-size: 0.8rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.nasa-info h2 {
+  margin: 0 0 20px;
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.nasa-info .description {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: var(--color-light-gray);
+
+  line-height: 1.8;
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   NASA IMAGE / VIDEO
+========================= */
+
+#media:empty {
+  display: none;
+}
+
+#media img,
+#media video,
+#media iframe {
+  display: block;
+
+  width: 100%;
+
+  max-height: 720px;
+
+  object-fit: contain;
+
+  background-color: #050505;
+
+  border: none;
+}
+
+#media iframe {
+  min-height: 600px;
+}
+
+#media a {
+  display: inline-block;
+
+  margin: 40px;
+
+  padding: 14px 24px;
+
+  background-color: var(--color-blue);
+
+  color: var(--color-white);
+
+  text-decoration: none;
+
+  border-radius: 40px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 60px 20px;
+
+  text-align: center;
+
+  color: var(--color-gray);
+
+  border-top: 1px solid #202020;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+
+  color: var(--color-white);
+
+  font-size: 1.4rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.06em;
+}
+
+footer p {
+  margin: 8px 0;
+
+  font-size: 0.85rem;
+}
+
+.footer-small {
+  font-size: 0.75rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+  .main-header {
+    padding: 25px 5%;
+  }
+
+  .hero {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    background-position: 60% center;
+  }
+
+  .search-section,
+  .apod-section {
+    width: 90%;
+  }
+
+  .nasa-info {
+    padding: 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .main-header {
+    padding: 22px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: 90vh;
+
+    padding: 130px 22px 80px;
+
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.9)),
+      url("earth-hero.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 16vw, 5rem);
+  }
+
+  .search-section,
+  .apod-section {
+    width: calc(100% - 44px);
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .search-section form {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+  }
+
+  input[type="date"] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .nasa-info {
+    padding: 25px;
+  }
+
+  #media iframe {
+    min-height: 300px;
+  }
+}
