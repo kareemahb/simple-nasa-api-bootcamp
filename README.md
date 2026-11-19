@@ -2,7 +2,7 @@
 
 Pick any date and see NASA's Astronomy Picture of the Day (APOD) for it: the image or video, its title, and the astronomer's explanation.
 
-🔗 **Live Demo:** [kareemahb.github.io/simple-nasa-api-bootcamp](https://github.com/kareemahb/simple-nasa-api-bootcamp)
+🔗 **Live Demo:** [kareemahb.github.io/simple-nasa-api-bootcamp](https:/kareemahb.github.io/simple-nasa-api-bootcamp/)
 
 ![alt text](image.png)
 
